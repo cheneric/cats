@@ -1,0 +1,42 @@
+.boundedContain {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.boundedCover {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.boundedTopLeft {
+	object-position: top left;
+}
+
+.header {
+	align-items: baseline;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.header > :not(:first-child) {
+	margin-left: 0.5em;
+}
+
+#searchImages .imageBox {
+	height: 800px;
+	width: 1200px;
+}
+
+#searchImages .imageCell {
+	float: left;
+	height: 400px;
+	width: 400px;
+}
+
+#viewImage .imageCell {
+	height: 900px;
+	width: 900px;
+}
