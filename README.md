@@ -4,7 +4,16 @@
 
 I wrote this app to refamiliarize myself with Java web applications.
 
-This application is written using Spring Boot (web framework), Webflux (REST), and Jackson (JSON).
+It uses [The Cat API](https://thecatapi.com/) to view cat photos in different ways:
+  * random
+  * search
+
+### Technologies
+
+  * Spring Boot (web framework)
+  * Webflux (REST)
+  * Jackson (JSON)
+  * Freemarker (templating)
 
 ### How to run
 
