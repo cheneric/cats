@@ -18,11 +18,13 @@ import java.util.concurrent.CompletableFuture;
 
 @Controller
 public class ImageController {
-	private static final Log log = LogFactory.getLog(ImageController.class);
+	private final Log log;
 	private final ImageService imageService;
 
-	public ImageController(ImageService imageService) {
+
+	public ImageController(ImageService imageService, Log log) {
 		this.imageService = imageService;
+		this.log = log;
 	}
 
 	@GetMapping("/")

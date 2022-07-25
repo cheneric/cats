@@ -30,7 +30,6 @@ public class ImageService {
 		}
 	}
 
-	private static final Log log = LogFactory.getLog(ImageService.class);
 	protected static final String CATEGORY_IDS_PARAMETER_NAME = "category_ids";
 	protected static final String LIMIT_PARAMETER_NAME = "limit";
 	protected static final String MIME_TYPES_PARAMETER_NAME = "mime_types";
@@ -39,17 +38,20 @@ public class ImageService {
 	protected static final String SIZE_FULL = "full";
 	protected static final String SORT_PARAMETER_NAME ="order";
 
+	private final Log log;
 	private final int requestTimeoutMillis;
 
 	private final WebClient webClient;
 
 	public ImageService(WebClient.Builder webClientBuilder,
+						Log log,
 						@Value("${cats.imageService.baseUrl}") String baseUrl,
 						@Value("${cats.imageService.requestTimeoutMillis}") int requestTimeoutMillis)
 	{
 		this.webClient =
 			webClientBuilder.baseUrl(baseUrl)
 				.build();
+		this.log = log;
 		this.requestTimeoutMillis = requestTimeoutMillis;
 	}
 
