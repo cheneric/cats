@@ -5,8 +5,10 @@
 I wrote this app to refamiliarize myself with Java web applications.
 
 It uses [The Cat API](https://thecatapi.com/) to view cat photos in different ways:
-  * random
-  * search
+  * random 
+    ![View random cat screenshot](images/random.png)
+  * search 
+    ![Search cats screenshot](images/search.png)
 
 ### Technologies
 
