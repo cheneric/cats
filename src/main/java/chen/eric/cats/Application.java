@@ -29,21 +29,6 @@ public class Application {
 	}
 
 	@Bean
-	public Executor taskExecutor(
-		@Value("${cats.taskExecutor.corePoolSize}") int taskExecutorCorePoolSize,
-		@Value("${cats.taskExecutor.maxPoolSize}") int taskExecutorMaxPoolSize,
-		@Value("${cats.taskExecutor.queueCapacity}") int taskExecutorQueueCapacity)
-	{
-		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(taskExecutorCorePoolSize);
-		executor.setMaxPoolSize(taskExecutorMaxPoolSize);
-		executor.setQueueCapacity(taskExecutorQueueCapacity);
-		executor.setThreadNamePrefix("Cats-");
-		executor.initialize();
-		return executor;
-	}
-
-	@Bean
 	@Scope("prototype")
 	// https://medium.com/simars/inject-loggers-in-spring-java-or-kotlin-87162d02d068
 	public Log provideLog(final InjectionPoint injectionPoint) {
@@ -58,10 +43,25 @@ public class Application {
 		);
 	}
 
+	@Bean
+	public Executor taskExecutor(
+		@Value("${cats.taskExecutor.corePoolSize}") int taskExecutorCorePoolSize,
+		@Value("${cats.taskExecutor.maxPoolSize}") int taskExecutorMaxPoolSize,
+		@Value("${cats.taskExecutor.queueCapacity}") int taskExecutorQueueCapacity)
+	{
+		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(taskExecutorCorePoolSize);
+		executor.setMaxPoolSize(taskExecutorMaxPoolSize);
+		executor.setQueueCapacity(taskExecutorQueueCapacity);
+		executor.setThreadNamePrefix("Cats-");
+		executor.initialize();
+		return executor;
+	}
+
 	public static void main(String[] args) {
 		final ApplicationContext context = SpringApplication.run(Application.class, args);
 		final Log log = LogFactory.getLog(Application.class);
-		log.debug("Let's inspect the beans provided by Spring Boot:");
+		log.debug("Beans provided by Spring Boot:");
 		final String[] beanNames = context.getBeanDefinitionNames();
 		Arrays.sort(beanNames);
 		for (final String beanName : beanNames) {
