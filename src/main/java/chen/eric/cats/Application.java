@@ -46,7 +46,7 @@ public class Application {
 	@Bean
 	@Scope("prototype")
 	// https://medium.com/simars/inject-loggers-in-spring-java-or-kotlin-87162d02d068
-	public Log log(final InjectionPoint injectionPoint) {
+	public Log provideLog(final InjectionPoint injectionPoint) {
 		return LogFactory.getLog(
 			of(injectionPoint.getMethodParameter())
 				.<Class>map(MethodParameter::getContainingClass)
