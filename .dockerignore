@@ -1,0 +1,10 @@
+build/
+/.gradle/
+/.idea/
+/gradle/
+/images/
+/*.md
+/gradlew*
+/.dockerignore
+/.gitignore
+/Dockerfile
