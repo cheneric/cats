@@ -33,13 +33,13 @@ Then, in the project root directory:
 1. Build the project:
 
 ```shell
-project  $ ./gradlew build
+cats  $ ./gradlew build
 ```
 
 2. Run the project:
 
 ```shell
-project  $ java -jar build/libs/cats-0.0.1-SNAPSHOT.jar
+cats  $ java -jar build/libs/cats-0.0.1-SNAPSHOT.jar
 ```
 
 3. In a browser, open http://localhost:8080/
@@ -53,13 +53,13 @@ Then, in the project root directory:
 1. Build the Docker image:
 
 ```shell
-project  $ docker build --rm -t chen.eric/cats:latest .
+cats  $ docker build --rm -t chen.eric/cats:latest .
 ```
 
 2. Run the Docker container:
 
 ```shell
-project  $ docker run -dp 8080:8080 --rm --name cats chen.eric/cats:latest 
+cats  $ docker run -dp 8080:8080 --rm --name cats chen.eric/cats:latest 
 ```
- 
+
 3. In a browser, open http://localhost:8080/
